@@ -11,16 +11,20 @@
 <header>
   <% include ./partials/_header %>
 </header>
-	<h1>List of URLS</h1>
-	<ul>
-		<% Object.keys(urls).forEach(function(key) { %>
-			<li><%= urls[key] %></li>
-			<li>URL: <%= urls[key] %>
-				+        <br>This is your short URL: <a href="<%=`http://localhost:8080/u/${key}`%>"><%=`http://localhost:8080/u/${key}`%></a></li>
-		<% }); %>
-	</ul>
+<h1>List of URLS</h1>
+<ul>
+	<% Object.keys(urls).forEach(function(key) { %>
+        <li> <%= key %> ---> <a href="<%=`http://localhost:8080/u/${key}`%>"><%= urls[key]%></a></li>
+        <form method="POST" action="<%=`/urls/${key}/delete`%>">
+        	<input type="submit" value="Delete this URL">
+        </form>
+        <form method="GET" action="<%=`/urls/${key}`%>">
+        	<input type="submit" value="Edit this URL">
+        </form>
+    <% }); %>    
+</ul>
 <a href="/urls/new">Click here to shorten your URL!</a>
+
+
 </body>
-
-
 </html> 
