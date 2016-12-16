@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>TinyApp</title>
+</head>
+
+<body>
+<header>
+  <% include ./partials/_header %>
+</header>
+	<h1>List of URLS</h1>
+	<ul>
+		<% Object.keys(urls).forEach(function(key) { %>
+			<li><%= urls[key] %></li>
+			<li>URL: <%= urls[key] %>
+				+        <br>This is your short URL: <a href="<%=`http://localhost:8080/u/${key}`%>"><%=`http://localhost:8080/u/${key}`%></a></li>
+		<% }); %>
+	</ul>
+<a href="/urls/new">Click here to shorten your URL!</a>
+</body>
+
+
+</html> 
