@@ -8,9 +8,9 @@
   <% include ./partials/_header %>
 </header>
 <h1>Short URL: <%= shortURL %></h1>
- <form action="<%=`/urls/${shortURL}`%>" method="POST">
-   <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
-   <input type="submit" value="Update">
- </form>
+	<form action="<%=`/urls/${shortURL}`%>" method="POST">
+		<input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
+		<input type="submit" value="Update">
+	</form>
 </body>
 </html>
