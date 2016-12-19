@@ -1,4 +1,18 @@
-<title> This will be our header </title>
-<body>
-<p>TinyApp</p>
-</body> 
+<% if (!userList[user]) { %>
+<p>Already a user? Click <a href = /login>here</a> to login</p>
+<p>Not registered? Click <a href = /register>here</a> to register</p>
+<% } else { %>
+<p><b><%=`Your are logged in as ${userList[user]["email"]}`%></b><//p>
+<div style="width:400px;">
+<div style="float: left; width: 130px">
+<form action="/logout" method="POST">
+  <input type="submit" class= "inline" value="Logout" >
+</form>
+</div>
+<div style="float: right; width: 130px">
+<form action="/urls" method="GET">
+  <input type="submit" class = inline value="My List" >
+</form>
+</div>
+</div>
+<% } %>

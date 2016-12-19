@@ -3,14 +3,21 @@
 <head>
   <title>TinyApp</title>
 </head>
-<body>
-<header>
-  <% include ./partials/_header %>
-</header>
-<h1>Short URL: <%= shortURL %></h1>
-	<form action="<%=`/urls/${shortURL}`%>" method="POST">
-		<input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
-		<input type="submit" value="Update">
-	</form>
+<body background = "/mauve.jpg">
+  <center>
+  <header>
+    <% include ./partials/_header %>
+  </header>
+  <h1>Short URL: <a href = "<%=`/u/${shortURL}`%>"> <%= shortURL %></a></h1>
+  <h2>Long URL: <a href = "<%= longURL%>"><%= longURL %></a>
+    <form method="POST" action="<%=`/urls/${shortURL}/delete`%>">
+      <input type="submit" value="Delete this URL">
+    </form>
+  </h2>
+  <form action="<%=`/urls/${shortURL}`%>" method="POST">
+  <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
+  <input type="submit" value="Update">
+  </form>
+  <center>
 </body>
 </html>
